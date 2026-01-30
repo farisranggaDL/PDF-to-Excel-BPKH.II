@@ -5,6 +5,12 @@ from PIL import Image
 import pandas as pd
 import io
 
+# Create a test image or open an existing one
+img = Image.new("RGB", (100, 30), color=(255, 255, 255))
+img.show()
+
+print(pytesseract.image_to_string(img))
+
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 st.set_page_config(page_title="PDF OCR to Excel", layout="centered")
@@ -55,3 +61,4 @@ if uploaded_file is not None:
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
     )
+
