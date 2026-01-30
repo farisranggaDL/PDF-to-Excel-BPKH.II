@@ -30,6 +30,8 @@ def setup_tesseract():
 
 setup_tesseract()
 
+pytesseract.image_to_string(image, lang="eng+ind")
+
 # -------------------------
 # Upload PDF
 # -------------------------
@@ -81,3 +83,4 @@ if uploaded_file is not None:
         file_name="ocr_output.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
