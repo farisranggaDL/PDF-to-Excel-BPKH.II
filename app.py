@@ -30,8 +30,6 @@ def setup_tesseract():
 
 setup_tesseract()
 
-pytesseract.image_to_string(image, lang="eng+ind")
-
 # -------------------------
 # Upload PDF
 # -------------------------
@@ -48,7 +46,7 @@ def ocr_pdf_to_text(pdf_bytes):
     extracted_text = []
 
     for page_num, image in enumerate(images, start=1):
-        text = pytesseract.image_to_string(image, lang="eng")  # add other languages if needed
+        text = pytesseract.image_to_string(image, lang="eng+ind")  # add other languages if needed
         extracted_text.append({
             "Page": page_num,
             "Text": text.strip()
@@ -83,4 +81,5 @@ if uploaded_file is not None:
         file_name="ocr_output.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
 
