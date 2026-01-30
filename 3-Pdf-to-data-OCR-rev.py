@@ -5,6 +5,8 @@ from PIL import Image
 import pandas as pd
 import io
 
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
 st.set_page_config(page_title="PDF OCR to Excel", layout="centered")
 
 st.title("📄➡️📊 Scanned PDF to Excel (OCR)")
@@ -51,4 +53,5 @@ if uploaded_file is not None:
         data=output.getvalue(),
         file_name="ocr_output.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+
     )
